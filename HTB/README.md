@@ -6,8 +6,8 @@ Machine write-ups organized by difficulty, covering enumeration, foothold, and p
 
 | Machine | OS | Key Technique |
 |---|---|---|
-| [Dancing](./easy/dancing/README.md) | Windows | SMB enumeration |
-| [Redeemer](./easy/redeemer/README.md) | Linux | Redis misconfiguration |
+| [Dancing](./Easy/Dancing/README.md) | Windows | SMB enumeration |
+| [Redeemer](./Easy/Redeemer/README.md) | Linux | Redis misconfiguration |
 
 ## Medium
 
