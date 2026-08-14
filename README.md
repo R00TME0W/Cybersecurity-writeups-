@@ -7,6 +7,8 @@ A collection of cybersecurity case studies and lab write-ups — incident breakd
 | Write-up | Type | Description |
 |---|---|---|
 | [WannaCry](./wannacry/README.md) | Incident analysis | Breakdown of the 2017 WannaCry ransomware worm — attack chain, exploited vulnerabilities, and mitigation strategies mapped to the Cyber Kill Chain. |
+|---|---|---|
+| [HTB Machines](./HTB/README.md) | Lab write-ups | Machine write-ups organized by difficulty. |
 
 More write-ups (Hack The Box machines, lab builds) will be added here as they're completed.
 
