@@ -8,6 +8,7 @@ Machine write-ups organized by difficulty, covering enumeration, foothold, and p
 |---|---|---|
 | [Dancing](./Easy/Dancing/README.md) | Windows | SMB enumeration |
 | [Redeemer](./Easy/Redeemer/README.md) | Linux | Redis misconfiguration |
+| [Appointment](./Easy/Appointment/README.md) | Linux | SQL injection auth bypass |
 
 ## Medium
 
