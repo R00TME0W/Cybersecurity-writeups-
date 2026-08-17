@@ -12,18 +12,20 @@ Appointment is an easy-difficulty Linux machine from Hack The Box that focuses o
 
 ## Recon
 
-### Connectivity check
+### Environment Setup
+
+Connected to the HTB VPN network before starting enumeration.
+
+![Starting the VPN connection](./screenshots/initial-recon.png)
+![VPN connection established](./screenshots/initial-recon-2.png)
+
+### Connectivity check and Nmap
 
 ```
 ping -c 4 10.129.70.114
 ```
 
 Confirmed the host was up and reachable before scanning.
-
-![Initial recon](./screenshots/initial-recon.png)
-![Initial recon - continued](./screenshots/initial-recon-2.png)
-
-### Nmap
 
 ```
 nmap -sC -sV 10.129.70.114
@@ -36,7 +38,7 @@ PORT   STATE SERVICE VERSION
 |_http-title: Login
 ```
 
-![Nmap scan](./screenshots/nmap-scan.png)
+![Ping and Nmap scan](./screenshots/nmap-scan.png)
 
 Only one port open: 80/tcp, running Apache 2.4.38 on Debian. The `http-title` field flagged a page titled "Login," which immediately narrowed the scope — the web application itself was the only attack surface on this box.
 
@@ -88,6 +90,8 @@ Not applicable — the machine's objective was completed entirely through the SQ
 ## Flag
 
 The authentication bypass granted access to the application, which revealed the flag directly.
+
+**Flag:** `e3d0796d002a446c0e622226f42e9672`
 
 ![Successful login / flag](./screenshots/flag.png)
 
