@@ -8,7 +8,7 @@
 
 ## Overview
 
-Sequel is a easy Linux machine that introduces a MySQL/MariaDB service misconfigured to allow the `root` database user to authenticate without a password. The machine is a straightforward exercise in database enumeration: connecting to the service, listing databases and tables, and querying them directly to extract sensitive data — no exploit code required, just knowing where to look.
+Sequel is an easy Linux machine that introduces a MySQL/MariaDB service misconfigured to allow the `root` database user to authenticate without a password. The machine is a straightforward exercise in database enumeration: connecting to the service, listing databases and tables, and querying them directly to extract sensitive data — no exploit code required, just knowing where to look.
 
 ## Recon
 
@@ -100,7 +100,7 @@ Dumping the full table showed a row named `flag` sitting right alongside ordinar
 
 ## Privilege Escalation
 
-Not applicable. No shell was obtained or needed — the objective was completed entirely through direct, unauthenticated database access and standard SQL queries.
+Not applicable. No shell was obtained or needed — the objective was completed entirely through direct database access using passwordless authentication and standard SQL queries.
 
 ## Flag
 
