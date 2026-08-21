@@ -8,7 +8,7 @@
 
 ## Overview
 
-Sequel is a very-easy Linux machine that introduces a MySQL/MariaDB service misconfigured to allow the `root` database user to authenticate without a password. The machine is a straightforward exercise in database enumeration: connecting to the service, listing databases and tables, and querying them directly to extract sensitive data — no exploit code required, just knowing where to look.
+Sequel is a easy Linux machine that introduces a MySQL/MariaDB service misconfigured to allow the `root` database user to authenticate without a password. The machine is a straightforward exercise in database enumeration: connecting to the service, listing databases and tables, and querying them directly to extract sensitive data — no exploit code required, just knowing where to look.
 
 ## Recon
 
@@ -69,7 +69,7 @@ mysql -h 10.129.89.229 -u root --skip-ssl
 
 ## Foothold
 
-The "foothold" here wasn't code execution — it was direct database access, granted by a misconfiguration: the `root` MySQL user had no password set and the client only needed `--skip-ssl` to bypass the TLS requirement. From inside the MariaDB shell, standard SQL enumeration revealed everything needed:
+The "foothold" here wasn't code execution — it was direct database access, granted by a misconfiguration: the root MySQL user allowed passwordless authentication, while the client required SSL by default even though the server did not support it. Using --skip-ssl allowed the connection to proceed.
 
 ```sql
 SHOW databases;
@@ -116,12 +116,12 @@ SELECT value FROM config WHERE name = 'flag';
 
 | Category | Vulnerability | Why It Mattered |
 |---|---|---|
-| Configuration | `root` MySQL/MariaDB user with no password set | Allowed unauthenticated, full-privilege access to every database on the host |
+| Configuration | `root` MySQL/MariaDB user with no password set | Allowed passwordless authentication as the root database user, providing full-privilege database access |
 | Data handling | Sensitive value (`flag`) stored in a general-purpose `config` table | Anyone who reaches the database at all immediately finds it — no separation between settings and secrets |
 
 ## Lessons Learned / Takeaways
 
-- Reinforced that not every foothold needs an exploit — a misconfigured authentication requirement (no password, TLS not enforced correctly) can be just as effective as a technical vulnerability.
+- Reinforced that not every foothold needs an exploit — a misconfigured authentication requirement, such as passwordless access to a privileged database account, can be just as effective as a technical vulnerability.
 - Practiced core SQL enumeration commands (`SHOW databases`, `USE`, `SHOW tables`, `DESCRIBE`, `SELECT`) as a repeatable checklist for any exposed database service.
 - Reinforced why database accounts — especially `root`/admin-level ones — should never be left without a password, regardless of network exposure assumptions.
 - Reinforced why secrets and configuration values should never share a table with ordinary application settings.
