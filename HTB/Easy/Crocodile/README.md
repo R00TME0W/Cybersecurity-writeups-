@@ -12,7 +12,14 @@ Crocodile is an easy Linux machine that illustrates, quite directly, two misconf
 
 ## Recon
 
-### Ping
+### Environment Setup
+
+Connected to the HTB VPN network before starting enumeration.
+
+![VPN connection and initialization](./screenshots/initialization.png)
+![VPN certificate verification](./screenshots/initialization-2.png)
+
+### Connectivity check
 
 Before firing up nmap, I confirm the host is up and note the latency (useful later as a baseline if something feels slow):
 
@@ -28,9 +35,6 @@ PING 10.129.118.81 (10.129.118.81) 56(84) bytes of data.
 --- 10.129.118.81 ping statistics ---
 4 packets transmitted, 4 received, 0% packet loss, time 3005ms
 ```
-
-![VPN connection and initialization](./screenshots/initialization.png)
-![VPN certificate verification](./screenshots/initialization-2.png)
 ![Ping to the target host](./screenshots/ping.png)
 
 ### Nmap
