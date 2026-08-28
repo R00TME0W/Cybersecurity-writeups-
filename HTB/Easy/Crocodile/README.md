@@ -141,7 +141,6 @@ gobuster dir -u http://10.129.118.81 -w /usr/share/wordlists/dirb/small.txt -x p
 With the username/password pair pulled from FTP (`admin` / `rKXM59ESxesUFHAd`), I try logging in at `/login.php`. The credentials are valid and I get access to the admin panel.
 
 ![Login form](./screenshots/Login.png)
-![Flag](./screenshots/flag.png)
 
 The vulnerability chain was straightforward: anonymous FTP access exposed plaintext username/password files, one of which provided valid administrator credentials for the web application. These credentials granted access to the unlinked login panel, which then exposed the flag on the administrator dashboard.
 
@@ -154,6 +153,7 @@ The flag is obtained directly on the admin dashboard right after login, with no 
 ```
 http://10.129.118.81/dashboard/index.php
 ```
+![Flag](./screenshots/flag.png)
 
 ## Vulnerabilities Summary
 
